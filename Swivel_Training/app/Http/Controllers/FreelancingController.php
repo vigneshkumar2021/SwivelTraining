@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Freelancing;
 
 class FreelancingController extends Controller
 {
@@ -28,7 +29,7 @@ class FreelancingController extends Controller
     {
         return view('bronze_details');
     }
-     public function silver()
+    public function silver()
     {
         return view('silver');
     }
@@ -53,9 +54,41 @@ class FreelancingController extends Controller
     {
         return view('diamond_details');
     }
-     public function form()
+    public function form()
     {
         return view('form');
     }
 
+    public function formdata(Request $request)
+    {
+        $validated = $request->validate([
+            'name' => 'required|string',
+            'email' => 'required|email',
+            'phone' => 'required|string',
+            'location' => 'required|string',
+            'price' => 'required|string',
+            'paymentMethod' => 'required|string',
+            'course' => 'required|string',
+            'duration' => 'nullable|string'
+        ]);
+
+        // Store in DB
+        Freelancing::create([
+            'name' => $validated['name'],
+            'email' => $validated['email'],
+            'phone' => $validated['phone'],
+            'location' => $validated['location'],
+            'price' => $validated['price'],
+            'paymentMethod' => $validated['paymentMethod'],
+            'duration' => $validated['paymentMethod'] === 'emi' ? $validated['duration'] : null,
+            'course' => $validated['course'],
+        ]);
+        return redirect("/");
+
+    }
+    public function showRegistrations()
+    {
+        $freelancers = Freelancing::all(); // You can paginate if needed
+        return view('details', compact('freelancers'));
+    }
 }

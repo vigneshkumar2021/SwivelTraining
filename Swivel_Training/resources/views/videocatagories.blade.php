@@ -44,7 +44,7 @@
 
         .search-box input {
             padding: 10px 16px;
-            font-size: 22px;
+            font-size: 16px;
             border: 1px solid #ccc;
             border-radius: 25px;
             width: 600px;
@@ -136,34 +136,37 @@
         <!-- Template for 16 cards -->
     </div>
 
+    <!-- ✅ Replace the data array with 'id' for routing -->
     <script>
         const data = [
-            { title: "IT COURSE", img: "assets/video_Course/Web.jpg" },
-            { title: "NON- IT COURSES", img: "assets/video_Course/DM - Thumb.png" },
-            { title: "CarService", img: "assets/video_Course/Car Design - Thumbnail.png" },
-            { title: "10TH, 11TH, 12TH", img: "assets/video_Course/School Academy - Thumb.png" },
-            { title: "BEAUTICIAN", img: "assets/video_Course/Beautician Course.png" },
-
-            { title: "FITNESS", img: "assets/video_Course/Fittness.jpg" },
-            { title: "ART & CRAFT", img: "assets/video_Course/Art and craft - Thumb.png" },
-            { title: "TAILORING", img: "assets/video_Course/Tailoring Thumb.png" },
-            { title: "MODELING & FASHION DESIGNING", img: "https://picsum.photos/350/430?random=7" },
-            , { title: "COMPETITIVE EXAM", img: "https://picsum.photos/350/430?random=4" },
-            { title: "CAREER GUIDANCE & PLACEMENT TRAINING", img: "https://picsum.photos/350/430?random=5" },
-            { title: "AARI WORK", img: "https://picsum.photos/350/430?random=9" },
-            { title: "PHOTOGRAPHY", img: "https://picsum.photos/350/430?random=11" },
-            { title: "INSTRUMENTAL MUSIC", img: "https://picsum.photos/350/430?random=12" },
-            { title: "BAKING / COOKING", img: "https://picsum.photos/350/430?random=13" },
-            { title: "ABACUS", img: "https://picsum.photos/350/430?random=14" },
-            { title: "NEET / JEE", img: "https://picsum.photos/350/430?random=16" },
+            { id: "web", title: "web", img: "assets/video_Course/Web.jpg" },
+            { id: "dm", title: "DigitalMarketing", img: "assets/video_Course/DM - Thumb.png" },
+            { id: "car", title: "CarService", img: "assets/video_Course/Car Design - Thumbnail.png" },
+            { id: "school", title: "School", img: "assets/video_Course/School Academy - Thumb.png" },
+            { id: "beautician", title: "BEAUTICIAN", img: "assets/video_Course/Beautician Course.png" },
+            { id: "fitness", title: "FITNESS", img: "assets/video_Course/Fittness.jpg" },
+            { id: "craft", title: "ART & CRAFT", img: "assets/video_Course/Art and craft - Thumb.png" },
+            { id: "tailoring", title: "TAILORING", img: "assets/video_Course/Tailoring Thumb.png" },
+            { id: "aari", title: "AARI WORK", img: "assets/video_Course/Aari & Embroidery - Thumb.png" },
+            { id: "photo", title: "PHOTOGRAPHY", img: "assets/video_Course/Photography Course.png" },
+            { id: "mobile", title: "Mobile/Service", img: "assets/video_Course/Mobile Services.png" },
+            { id: "music", title: "INSTRUMENTAL MUSIC", img: "assets/video_Course/Instrumental Music Poster.png" },
+            { id: "baking", title: "BAKING / COOKING", img: "assets/video_Course/_Baking Poster.png" },
+            { id: "fashion", title: "MODELING  FASHION DESIGNING", img: "assets/video_Course/Fashion designing .png" },
+            { id: "exam", title: "COMPETITIVE EXAM", img: "assets/video_Course/Competitor Exam.png" },
+            { id: "career", title: "CAREER GUIDANCE & PLACEMENT TRAINING", img: "assets/video_Course/career guidance and placement training.png" },
+            { id: "abacus", title: "ABACUS", img: "assets/video_Course/Abacus .png" },
+            { id: "nj", title: "NEET / JEE", img: "assets/video_Course/Competitor Exam.png" },
+            { id: "Modeling", title: "Modeling", img: "assets/video_Course/Modeling.png" },
         ];
 
         function loadImages(filtered = data) {
             const gallery = document.getElementById('gallery');
             gallery.innerHTML = filtered.map(item => `
         <div class="image-card">
-          <img src="${item.img}" alt="${item.title}" />
-        
+          <a href="videodetails/${item.id}.html">
+            <img src="${item.img}" alt="${item.title}" title="${item.title}" />
+          </a>
         </div>
       `).join('');
         }
@@ -174,9 +177,11 @@
             loadImages(filtered);
         }
 
-        // Load all on initial load
+        // Load all initially
         loadImages();
     </script>
+
+
 </body>
 
 </html>

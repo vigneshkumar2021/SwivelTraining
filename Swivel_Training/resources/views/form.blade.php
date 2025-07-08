@@ -127,30 +127,32 @@
         <div class="form-card">
             <h3 class="text-center mb-4">Registration</h3>
 
-            <form>
+            <form method="POST" action="/formdata">
+                @csrf
+
                 <div class="mb-3">
                     <label class="form-label">Full Name</label>
-                    <input type="text" class="form-control" required>
+                    <input type="text" class="form-control" name="name" required>
                 </div>
 
                 <div class="mb-3">
                     <label class="form-label">Email</label>
-                    <input type="email" class="form-control" required>
+                    <input type="email" class="form-control" name="email" required>
                 </div>
 
                 <div class="mb-3">
                     <label class="form-label">Phone</label>
-                    <input type="tel" class="form-control" required>
+                    <input type="tel" class="form-control" name="phone" required>
                 </div>
 
                 <div class="mb-3">
                     <label class="form-label">Location</label>
-                    <input type="text" class="form-control" required>
+                    <input type="text" class="form-control" name="location" required>
                 </div>
 
                 <div class="mb-3">
                     <label class="form-label">Price</label>
-                    <input type="text" class="form-control" id="price" readonly>
+                    <input type="text" class="form-control" id="price" name="price" readonly>
                 </div>
 
                 <div class="mb-3">
@@ -167,7 +169,7 @@
 
                 <div class="mb-3 hidden" id="emiDuration">
                     <label class="form-label">EMI Duration</label>
-                    <select class="form-select">
+                    <select class="form-select" name="duration">
                         <option disabled selected>Select duration</option>
                         <option value="3">3 months</option>
                         <option value="6">6 months</option>
@@ -180,16 +182,12 @@
 
                 <div class="mb-3">
                     <label class="form-label">Course Name</label>
-                    <input type="text" class="form-control" id="course" readonly>
+                    <input type="text" class="form-control" id="course" name="course" readonly>
                 </div>
-
-                <!-- <div class="mb-3">
-                    <label class="form-label">Course Level</label>
-                    <input type="text" class="form-control" id="courselevel" value="Bronze" readonly>
-                </div> -->
 
                 <button type="submit" class="btn btn-primary w-100">Submit</button>
             </form>
+
         </div>
     </div>
 
