@@ -10,7 +10,6 @@
   <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap" rel="stylesheet">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js"
     crossorigin="anonymous"></script>
-  <link rel="stylesheet" href="\assets\css\index.css">
 
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js"
@@ -20,6 +19,173 @@
   <script src="https://kit.fontawesome.com/yourkitid.js" crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js"
     crossorigin="anonymous"></script>
+
+  <style>
+    /* * {
+      box-sizing: border-box;
+    } */
+
+    body {
+      margin: 0;
+      font-family: 'Outfit', sans-serif;
+      color: #333;
+    }
+
+    .navbar {
+      background: #fff;
+      padding: 12px 30px;
+      border-bottom: 1px solid #ddd;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+      position: sticky;
+      top: 0;
+      z-index: 999;
+    }
+
+    .title {
+      font-size: 28px;
+      font-weight: 800;
+      color: #7e3d9c;
+    }
+
+    .buttons button {
+      margin-left: 15px;
+      background-color: #7e3d9c;
+      color: white;
+      font-weight: bold;
+      border: none;
+      padding: 10px 22px;
+      border-radius: 25px;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    .buttons button:hover {
+      background-color: #9b59b6;
+    }
+
+    .slide video {
+      width: 100%;
+      height: auto;
+      display: block;
+      object-fit: cover;
+      border-radius: 0;
+    }
+
+    .content {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      padding: 60px 0px;
+    }
+
+    .card {
+      padding: 0px;
+      border-radius: 12px;
+      width: 600px;
+      height: 300px;
+      text-align: center;
+    }
+
+    .card img,
+    .video-wrapper iframe {
+      width: 90%;
+      height: 250px;
+      border-radius: 10px;
+      object-fit: cover;
+    }
+
+    .card h3 {
+      margin: 20px 0 15px;
+      color: #7e3d9c;
+      font-weight: 700;
+    }
+
+    .explore {
+      background-color: #7e3d9c;
+      color: white;
+      padding: 12px 28px;
+      font-size: 18px;
+      border: none;
+      border-radius: 30px;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    .explore:hover {
+      background-color: #9b59b6;
+    }
+
+    section {
+      background: #fff;
+      margin: 60px 0;
+      padding: 60px 20px;
+      box-shadow: inset 0 10px 25px rgba(0, 0, 0, 0.02);
+    }
+
+    .about-container {
+      max-width: 1100px;
+      margin: auto;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 40px;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .about-image {
+      flex: 1;
+      min-width: 250px;
+      text-align: center;
+    }
+
+    .about-image img {
+      width: 150px;
+      border-radius: 50%;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    }
+
+    .about-text {
+      flex: 2;
+      min-width: 300px;
+    }
+
+    .about-text h2 {
+      font-size: 32px;
+      font-weight: 800;
+      color: #7e3d9c;
+      margin-bottom: 20px;
+    }
+
+    .about-text p {
+      font-size: 17px;
+      line-height: 1.8;
+      color: #444;
+    }
+
+    .footer_detail {
+      position: relative;
+      top: 40px;
+    }
+
+    @media (max-width: 768px) {
+      .content {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .about-container {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .card {
+        width: 90%;
+      }
+    }
+  </style>
 
 </head>
 
@@ -33,12 +199,120 @@
     </div>
   </div>
   <br><br>
-  <!-- <div class="slide first">
-    <video width="100%" height="610" autoplay muted loop playsinline>
-      <source src="./videos/WhatsApp Video 2025-06-20 at 5.39.31 PM.mp4" type="video/mp4">
-      Your browser does not support the video tag.
-    </video>
-  </div> -->
+  <!-- Two-Column Content -->
+  <div class="main-content">
+    <div class="text-box">
+      <h2>About This Playlist</h2>
+      <p>
+        This is a description of the video playlist. It appears on the left side while the video remains
+        centered in the right half of the screen. The video plays in square format with autoplay and playlist
+        functionality.
+      </p>
+    </div>
+
+    <div class="video-box">
+      <div class="video-square">
+        <div id="player"></div>
+      </div>
+    </div>
+  </div>
+
+  <style>
+    .main-content {
+      display: flex;
+      flex-direction: row;
+      padding: 20px 0;
+      /* reduce top and bottom space */
+      margin: 0;
+      align-items: center;
+    }
+
+    .text-box {
+      width: 50%;
+      padding: 0 30px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .text-box h2 {
+      margin-bottom: 15px;
+      font-size: 24px;
+      color: #333;
+    }
+
+    .text-box p {
+      font-size: 16px;
+      color: #555;
+      line-height: 1.6;
+    }
+
+    .video-box {
+      width: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .video-square {
+      width: 400px;
+      height: 400px;
+    }
+
+    #player {
+      width: 100%;
+      height: 100%;
+    }
+
+    @media (max-width: 768px) {
+      .main-content {
+        flex-direction: column;
+        padding: 20px;
+      }
+
+      .text-box,
+      .video-box {
+        width: 100%;
+        text-align: center;
+        padding: 10px;
+      }
+
+      .video-square {
+        width: 300px;
+        height: 300px;
+      }
+    }
+  </style>
+
+  <!-- YouTube IFrame API -->
+  <script src="https://www.youtube.com/iframe_api"></script>
+  <script>
+    const videoIds = [
+      "pdlgI7X4rsk", "M7lc1UVf-VE", "3JZ_D3ELwOQ",
+      "l482T0yNkeo", "e-ORhEE9VVg", "hY7m5jjJ9mM"
+    ];
+
+    let player, currentIndex = 0;
+
+    function onYouTubeIframeAPIReady() {
+      player = new YT.Player('player', {
+        videoId: videoIds[currentIndex],
+        playerVars: { autoplay: 1, mute: 1, controls: 1, rel: 0, modestbranding: 1 },
+        events: {
+          'onReady': e => e.target.playVideo(),
+          'onStateChange': onPlayerStateChange
+        }
+      });
+    }
+
+    function onPlayerStateChange(e) {
+      if (e.data === YT.PlayerState.ENDED) {
+        currentIndex = (currentIndex + 1) % videoIds.length;
+        player.loadVideoById(videoIds[currentIndex]);
+      }
+    }
+  </script>
+
   <div class="content">
     <div class="card">
       <div class="video-wrapper">
