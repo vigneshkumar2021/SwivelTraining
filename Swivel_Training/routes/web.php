@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\FreelancingController;
+use App\Http\Controllers\VideoController;
 
 // Route::get('/', function () {
 //     return view('index');
@@ -22,6 +23,9 @@ Route::get('/form', [FreelancingController::class,'form']);
 Route::post('/formdata',[FreelancingController::class,'formdata']);
 Route::get('/details',[FreelancingController::class,'showRegistrations']);
 
+// Route ::get('/school',[VideoController::class,'school']);
+
+require __DIR__.'/video_routes.php';
 
 
 

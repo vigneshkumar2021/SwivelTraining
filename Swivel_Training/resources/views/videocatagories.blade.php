@@ -164,7 +164,7 @@
             const gallery = document.getElementById('gallery');
             gallery.innerHTML = filtered.map(item => `
         <div class="image-card">
-          <a href="videodetails/${item.id}.html">
+          <a href="videos/${item.id}">
             <img src="${item.img}" alt="${item.title}" title="${item.title}" />
           </a>
         </div>
