@@ -167,8 +167,8 @@
           <a href="videos/${item.id}">
             <img src="${item.img}" alt="${item.title}" title="${item.title}" />
           </a>
-        </div> `)
-     .join('');
+        </div>
+      `).join('');
         }
 
         function filterImages() {
