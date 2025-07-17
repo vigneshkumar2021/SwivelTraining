@@ -168,7 +168,8 @@
             <img src="${item.img}" alt="${item.title}" title="${item.title}" />
           </a>
         </div>
-      `).join('');
+      `)
+      .join('');
         }
 
         function filterImages() {
