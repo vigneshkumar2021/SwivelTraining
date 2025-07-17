@@ -288,8 +288,8 @@
   <script src="https://www.youtube.com/iframe_api"></script>
   <script>
     const videoIds = [
-      "pdlgI7X4rsk", "M7lc1UVf-VE", "3JZ_D3ELwOQ",
-      "l482T0yNkeo", "e-ORhEE9VVg", "hY7m5jjJ9mM"
+      "E0aporowHtU", "XaN8AJDEYL8", "ahd6oArQwjo",
+      "nAWpkBnWv7Y", "ahd6oArQwjo"
     ];
 
     let player, currentIndex = 0;
